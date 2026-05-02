@@ -56,7 +56,7 @@ export const siteConfig = {
    * Two-letter language code for HTML lang attribute and SEO.
    * Examples: 'en', 'id', 'es', 'fr'
    */
-  language: getEnv('SITE_LANGUAGE', 'en'),
+  language: getEnv('SITE_LANGUAGE', 'es'),
   
   /**
    * Site title
@@ -64,13 +64,13 @@ export const siteConfig = {
    * Used as fallback when page-specific title is not provided.
    */
   title: getEnv('SITE_TITLE', 'Professional Portfolio'),
-  
+  bio: getEnv('SITE_AUTHOR_BIO', 'Ingeniero de software enfocada en sistemas backend, datos y automatización, con interés en aplicar IA para resolver problemas complejos mediante soluciones prácticas y bien diseñadas.'),
   /**
    * Site description
    * 
    * Default meta description for SEO and social sharing.
    */
-  description: getEnv('SITE_DESCRIPTION', 'Engineering leader specializing in system architecture, technical decision-making, and delivering measurable business impact.'),
+  description: getEnv('SITE_DESCRIPTION', 'Ingeniero junior de software enfocado en sistemas backend, datos y automatización, con interés en desarrollar soluciones eficientes y generar impacto real.'),
   
   /**
    * Author information
@@ -80,19 +80,19 @@ export const siteConfig = {
    */
   author: {
     /** Full name */
-    name: getEnv('SITE_AUTHOR_NAME', 'Your Name'),
-    
+    name: getEnv('SITE_AUTHOR_NAME', 'Diego Fariña'),
+  
     /** Professional title or role */
-    title: getEnv('SITE_AUTHOR_TITLE', 'Senior Software Engineer'),
+    title: getEnv('SITE_AUTHOR_TITLE', 'Ingeniero Civil en Computación mención informática'),
     
     /** Short biography or professional summary */
-    bio: getEnv('SITE_AUTHOR_BIO', 'Engineering leader focused on solving complex technical challenges through thoughtful architecture and pragmatic trade-off analysis.'),
+    
     
     /** Contact email address */
-    email: getEnv('SITE_AUTHOR_EMAIL', 'hello@example.com'),
+    email: getEnv('SITE_AUTHOR_EMAIL', 'dfarinasalinas@gmail.com'),
     
     /** Location (optional, empty string to hide) */
-    location: getEnv('SITE_AUTHOR_LOCATION', ''),
+    location: getEnv('SITE_AUTHOR_LOCATION', 'Colina, Región Metropolitana'),
   },
   
   /**
@@ -103,10 +103,10 @@ export const siteConfig = {
    */
   social: {
     /** GitHub profile URL */
-    github: getEnv('SOCIAL_GITHUB', ''),
+    github: getEnv('SOCIAL_GITHUB', 'https://github.com/farinhadiego22'),
     
     /** LinkedIn profile URL */
-    linkedin: getEnv('SOCIAL_LINKEDIN', ''),
+    linkedin: getEnv('SOCIAL_LINKEDIN', 'https://www.linkedin.com/in/diego-fariña'),
     
     /** Twitter/X profile URL */
     twitter: getEnv('SOCIAL_TWITTER', ''),
@@ -124,14 +124,10 @@ export const siteConfig = {
    * Main site navigation structure. Order determines display order in the nav bar.
    * Add or remove items to customize navigation.
    */
-  nav: [
-    { label: 'Projects', href: '/projects' },
-    { label: 'Decisions', href: '/decisions' },
-    { label: 'Journey', href: '/journey' },
-    { label: 'Writing', href: '/writing' },
-    { label: 'Speaking', href: '/speaking' },
-    { label: 'Uses', href: '/uses' },
-    { label: 'Contact', href: '/contact' },
+  nav:  [
+    { label: 'Proyectos', href: '/projects' },
+    { label: 'Certificaciones', href: '/uses' },
+    { label: 'Contacto', href: '/contact' },
   ],
 } as const;
 

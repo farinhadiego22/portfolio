@@ -92,20 +92,20 @@ const recentDecisions = allDecisions
       <div class="hero-grid">
         <!-- Left: Value Statement -->
         <div class="hero-left">
-          <h1 class="hero-title">
-            I don't just ship projects.<br/>
-            <span class="hero-title-emphasis">I document decisions, trade-offs, and outcomes.</span>
-          </h1>
-          <p class="hero-sub">
-            A portfolio built around case studies — not screenshots.
-          </p>
-          <p class="hero-meta">
-            {siteConfig.author.name} · {siteConfig.author.title}
-          </p>
-          <div class="hero-cta">
-            <a href="/projects" class="btn-primary">Explore Case Studies</a>
-            <a href="/decisions" class="btn-secondary">How I Make Decisions</a>
-          </div>
+        <h1 class="hero-title">
+        No se trata solo de construir proyectos.<br/>
+        <span class="hero-title-emphasis">Se trata de entender problemas, trabajar con datos y explorar
+           cómo convertirlos en soluciones.</span>
+        </h1>
+        <p class="hero-sub">
+          Proyectos académicos enfocados en datos, inteligencia artificial y desarrollo de software.
+        </p>
+
+        <div class="hero-cta">
+          <a href="/projects" class="btn-primary">Ver proyectos</a>
+          <a href="/uses" class="btn-secondary">Certificaciones</a>
+          <a href="/contact" class="btn-secondary">Contacto</a>
+        </div>
         </div>
 
         <!-- Right: Case Snapshots -->
@@ -126,63 +126,182 @@ const recentDecisions = allDecisions
     <!-- Introduction -->
     <section class="introduction">
       <p>
-        I'm {siteConfig.author.name}, {siteConfig.author.title.toLowerCase()} focused on building systems that move real business metrics.
+        Soy {siteConfig.author.name}, {siteConfig.author.title.toLowerCase()} enfocado en construir 
+        soluciones basadas en datos e inteligencia artificial, integrando análisis, modelamiento y desarrollo de software.
+      </p> 
+      <p>
+        Tengo experiencia trabajando con procesos de datos, desde ETL y minería de datos hasta la 
+        construcción de aplicaciones full stack y el desarrollo de modelos de predicción y clasificación.
       </p>
       <p>
-        Every major decision is documented—because great engineers don't just build things, they explain why.
+        Me interesa abordar problemas de forma integral, combinando una base técnica sólida con una 
+        mirada práctica orientada a generar impacto real.
       </p>
-      <ForwardLink href="/journey" text="Read my journey" variant="muted" />
     </section>
-
-    <!-- Recent Decisions -->
-    <section class="recent-decisions">
-      <div class="section-header">
-        <h2>Recent Decisions</h2>
-        <ForwardLink href="/decisions" text="View all" variant="muted" />
-      </div>
       
-      {recentDecisions.length > 0 ? (
-        <div class="decisions-list">
-          {recentDecisions.map((decision) => {
-            const date = new Date(decision.data.date);
-            const formattedDate = date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-            return (
-              <article class="decision-item">
-                <span class="decision-date">{formattedDate}</span>
-                <h3 class="decision-title">{decision.data.title}</h3>
-                <p class="decision-context">{decision.data.context}</p>
-              </article>
-            );
-          })}
-        </div>
-      ) : (
-        <p class="no-decisions">No decisions documented yet.</p>
-      )}
-    </section>
+    <section class="experience">
+      <h2>Experiencia Laboral</h2>
 
-    <!-- Testimonials -->
-    <Testimonials limit={3} />
+      <div class="experience-list">
+        
+        <!-- Experiencia 1 -->
+        <article class="experience-item">
+          <span class="experience-date">Dic 2024 – Abr 2025</span>
+          <h3 class="experience-role">Asistente de Auditoría TI</h3>
+            <h4 class="experience-company">Práctica Profesional RSM</h4>
+            <p class="experience-description">
+              Mi práctica profesional se centró en la ejecución de controles generales de TI (ITGC) 
+              sobre sistemas empresariales, principalmente SAP y plataformas afines, con el objetivo 
+              de asegurar la integridad y confiabilidad de la información.
+            </p>
 
-    <!-- What I Think About -->
-    <section class="thinking">
-      <h2>Problems I Enjoy Solving</h2>
-      <p class="thinking-list">
-        How to scale systems without scaling complexity · When to choose consistency over availability · Making legacy codebases maintainable · Designing APIs that last · Building teams that ship · Turning technical debt into technical investment · Documenting decisions so future-you understands past-you
-      </p>
-    </section>
+            <p class="experience-description">
+              El proceso comienza con reuniones de entendimiento junto a responsables de sistemas, 
+              donde se levantaban procesos y controles existentes, evaluando áreas como gestión de 
+              accesos, incidencias y respaldos.
+            </p>
 
-    <!-- CTA -->
-    <section class="cta">
-      <h2>Let's Work Together</h2>
-      <p>
-        Looking for technical leadership, architectural guidance, or someone who documents their thinking? Let's talk.
-      </p>
-      <div class="cta-buttons">
-        <a href="/projects" class="btn-primary">View My Work</a>
-        <a href="/contact" class="btn-secondary">Get in Touch</a>
+            <p class="experience-description">
+              Para la validación, se analizaron evidencias como perfiles de usuario, roles y permisos, 
+              registros de cambios y respaldos del sistema, verificando que los procesos se ejecutaran 
+              conforme a lo definido.
+            </p>
+
+            <p class="experience-description">
+              Los controles y hallazgos se documentaron en entornos colaborativos (Excel, OneDrive y CaseWare). 
+              Además, apoyé tareas de análisis financiero utilizando tablas dinámicas y funciones avanzadas en Excel.
+            </p>
+
+            <p class="experience-description">
+              Participé en la evaluación de múltiples empresas en paralelo y logré optimizar el levantamiento de 
+              información, reduciendo la cantidad de reuniones necesarias con clientes.
+            </p>
+
+            <p class="experience-learnings">
+              <strong>Aprendizajes clave:</strong> Entendimiento de procesos empresariales, validación de controles 
+              sobre datos críticos y comunicación con perfiles no técnicos.
+            </p>
+        </article>
+        <!-- Experiencia 2 -->
+        <article class="experience-item">
+          <span class="experience-date">Mar 2025 – Jun 2025</span>
+          <h3 class="experience-role">Desarrollo de Plataforma de Gestión de Campañas</h3>
+          <h4 class="experience-role">Proyecto académico con Alloxentric · GPI</h4>
+
+          <p class="experience-description">
+            Proyecto desarrollado en conjunto con la empresa Alloxentric en el contexto 
+            del ramo Gestión de Procesos Informáticos (GPI), trabajando en un equipo de 5
+            personas bajo una dinámica similar a un entorno profesional, con reuniones semanales
+             y entregas progresivas.
+          </p>
+
+          <p class="experience-description">
+            El desarrollo abarcó el levantamiento de requerimientos, modelamiento de base de 
+            datos, creación de endpoints y construcción de una aplicación full stack con 
+            gestión de usuarios, autenticación, autorización y definición de roles.
+          </p>
+
+          <p class="experience-description">
+            El proyecto consistió en la integración de nuevas funcionalidades sobre una red social 
+            ya existente llamada Inmax, enfocada en la gestión y procesamiento de documentos junto 
+            con servicios asociados.
+          </p>
+
+          <p class="experience-description">
+            El desarrollo se basó en requerimientos previamente definidos por la empresa, incluyendo 
+            un prototipo de visualización en Figma, sobre el cual se implementaron funcionalidades como 
+            gestión de usuarios, control de accesos y visualización de información relevante para la 
+            toma de decisiones.
+          </p>
+
+          <p class="experience-description">
+            El proyecto fue desarrollado utilizando tecnologías como Vue, FastAPI, MongoDB/PostgreSQL 
+            y Keycloak para la gestión de identidad. Debido a restricciones del cliente, no es posible 
+            mostrar el producto final, pero actualmente se está desarrollando una versión simulada que 
+            incluirá generación de datos en tiempo real y control dinámico de presupuesto.
+          </p>
+
+          <p class="experience-description">
+            Proyecto completo próximamente disponible.
+          </p>
+
+          <p class="experience-learnings">
+            <strong>Aprendizajes clave:</strong> Trabajo en equipo en contexto cercano a industria, levantamiento 
+            de requerimientos con cliente, desarrollo full stack integrado y aplicación práctica de tecnologías de
+             backend, frontend y gestión de identidades.
+          </p>
+        </article>
+        <article class="experience-item">
+          <span class="experience-date">Jul 2024 – Nov 2025</span>
+          <h3 class="experience-role">Ayudante de Bases de Datos</h3>
+          <h4 class="experience-company">Universidad Tecnológica Metropolitana (UTEM)</h4>
+
+          <p class="experience-description">
+            Rol enfocado en apoyar el proceso de aprendizaje de estudiantes en el ramo de bases de datos, 
+            resolviendo dudas, guiando ejercicios y realizando clases breves de refuerzo de forma continua durante la semana.
+          </p>
+
+          <p class="experience-description">
+            El acompañamiento cubrió el ciclo completo del curso: modelamiento de datos mediante entidad-relación, 
+            aplicación de distintos niveles de normalización y construcción de consultas eficientes en SQL.
+          </p>
+
+          <p class="experience-description">
+            Como parte del proceso, los estudiantes desarrollaron una API REST con consultas predefinidas según el 
+            contexto del proyecto, integrando los conceptos trabajados en el modelamiento y manejo de datos.
+          </p>
+
+          <p class="experience-description">
+            Además, participé en la elaboración y evaluación de actividades con impacto en la nota final, 
+            apoyando el seguimiento del progreso de los alumnos.
+          </p>
+
+          <p class="experience-learnings">
+            <strong>Aprendizajes clave:</strong> Comunicación de conceptos técnicos, enseñanza aplicada de modelamiento 
+            de datos y SQL, y refuerzo de bases teóricas mediante práctica guiada en entornos como MySQL.
+          </p>
+        </article>
+
       </div>
     </section>
-  </main>
+
+    <section class="experience">
+        <h2>Experiencia Academica</h2>
+        <article class="experience-item">
+          <span class="experience-date">Mar 2025 – Dic 2025</span>
+          <h3 class="experience-role">Tesis · Clasificación de señales biomédicas con Deep Learning</h3>
+          <h4 class="experience-company">Universidad Tecnológica Metropolitana (UTEM)</h4>
+
+          <p class="experience-description">
+            Trabajo de título enfocado en la clasificación automática de señales biomédicas (fNIRS) 
+            para la detección de dolor, abordando el problema de su medición objetiva en contextos clínicos.
+          </p>
+
+          <p class="experience-description">
+            El proyecto incluyó el procesamiento y análisis de señales neurovasculares, considerando etapas 
+            de limpieza, normalización y estructuración de datos provenientes de múltiples pacientes y regiones 
+            anatómicas.
+          </p>
+
+          <p class="experience-description">
+            Se implementó y adaptó una arquitectura basada en Transformers para el análisis de señales, 
+            explorando distintas estrategias de representación (cervical–lumbar y multimodal O2Hb/HHb) 
+            y diseñando un pipeline de entrenamiento con validación cruzada y ajuste de hiperparámetros.
+          </p>
+
+          <p class="experience-description">
+            El modelo logró resultados sólidos en clasificación binaria (dolor vs. sano), alcanzando alta 
+            capacidad discriminatoria y precisión, validando el uso de deep learning para el análisis de 
+            señales fisiológicas complejas.
+          </p>
+
+          <p class="experience-learnings">
+            <strong>Aprendizajes clave:</strong> Procesamiento de señales biomédicas, construcción de pipelines 
+            de machine learning, uso de arquitecturas Transformer, validación de modelos y trabajo con datos 
+            reales en contextos de investigación aplicada.
+          </p>
+      </article>
+    </section>
 
   <style>
     .home-page {
@@ -446,6 +565,32 @@ const recentDecisions = allDecisions
       gap: 1rem;
     }
 
+    .experience-date {
+      display: block;
+      margin-bottom: 0.5rem;
+     }
+
+    .experience-description {
+      margin-bottom: 1rem;        
+      line-height: 1.7;           
+      color: var(--color-text-secondary);
+      max-width: 65ch;            
+    }
+
+    .experience-description:first-of-type {
+      color: var(--color-text); 
+    }
+
+
+    .experience-learnings {
+      margin-top: 1.25rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--color-border); /* separación visual */
+      font-size: 0.95rem;
+      color: var(--color-text-secondary);
+      max-width: 65ch;
+      margin-bottom: 3rem;     
+    }
     @media (max-width: 768px) {
       .home-page {
         padding: 0 1rem 3rem;
@@ -504,6 +649,7 @@ const recentDecisions = allDecisions
       .cta-buttons .btn-secondary {
         width: 100%;
       }
+}
     }
   </style>
 </BaseLayout>
