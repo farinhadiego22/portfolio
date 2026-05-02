@@ -62,10 +62,10 @@ export const pagesConfig = {
    * Projects listing page (/projects)
    */
   projects: {
-    title: 'Projects - Case Studies',
+    title: 'Proyectos - Casos de estudios',
     description: 'Detailed case studies showcasing problem-solving approach, technical decisions, and measurable impact across various engineering projects.',
-    heading: 'Projects',
-    intro: 'Case studies that demonstrate how I approach complex problems, make technical decisions, and deliver measurable impact. Each project tells the story of the challenge, the constraints, the decisions made, and the outcomes achieved.',
+    heading: 'Proyectos',
+    intro: 'Casos prácticos que demuestran cómo abordo problemas complejos, tomo decisiones técnicas y genero un impacto cuantificable. Cada proyecto narra el desafío, las limitaciones, las decisiones tomadas y los resultados obtenidos.',
   },
   
   /**
