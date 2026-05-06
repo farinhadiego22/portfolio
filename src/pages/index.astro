@@ -36,8 +36,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SEO from '../components/SEO.astro';
 import StructuredData from '../components/StructuredData.astro';
-import ForwardLink from '../components/ForwardLink.astro';
-import Testimonials from '../components/Testimonials.astro';
 import { getCollection } from 'astro:content';
 import { siteConfig } from '../config';
 
@@ -68,9 +66,7 @@ const caseSnapshots = featuredProjects.slice(0, 3);
  * top 2 for the homepage preview.
  */
 const allDecisions = await getCollection('decisions');
-const recentDecisions = allDecisions
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 2);
+
 ---
 
 <BaseLayout>

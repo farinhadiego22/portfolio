@@ -93,6 +93,7 @@ export const siteConfig = {
     
     /** Location (optional, empty string to hide) */
     location: getEnv('SITE_AUTHOR_LOCATION', 'Colina, Región Metropolitana'),
+    bio: getEnv('SITE_AUTHOR_BIO', 'Ingeniero de software enfocada en sistemas backend, datos y automatización, con interés en aplicar IA para resolver problemas complejos mediante soluciones prácticas y bien diseñadas.')
   },
   
   /**
