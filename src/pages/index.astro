@@ -87,6 +87,13 @@ const recentDecisions = allDecisions
   <StructuredData type="Person" />
 
   <main class="home-page">
+    <nav class="quick-nav" aria-label="Navegación rápida">
+    <ul>
+      <li><a href="#perfil">Perfil Profesional</a></li>
+      <li><a href="#experiencia">Experiencia Laboral</a></li>
+      <li><a href="#academica">Experiencia Académica</a></li>
+    </ul>
+    </nav>
     <!-- CASE-FIRST HERO -->
     <section class="hero">
       <div class="hero-grid">
@@ -98,7 +105,7 @@ const recentDecisions = allDecisions
            cómo convertirlos en soluciones.</span>
         </h1>
         <p class="hero-sub">
-          Proyectos académicos enfocados en datos, inteligencia artificial y desarrollo de software.
+          Portafolio profesional y proyectos académicos enfocados en datos, inteligencia artificial y desarrollo de software
         </p>
 
         <div class="hero-cta">
@@ -124,7 +131,8 @@ const recentDecisions = allDecisions
     </section>
 
     <!-- Introduction -->
-    <section class="introduction">
+    <section id="perfil" class="introduction">
+      <h2>Perfil Profesional</h2>
       <p>
         Soy {siteConfig.author.name}, {siteConfig.author.title.toLowerCase()} enfocado en construir 
         soluciones basadas en datos e inteligencia artificial, integrando análisis, modelamiento y desarrollo de software.
@@ -139,7 +147,7 @@ const recentDecisions = allDecisions
       </p>
     </section>
       
-    <section class="experience">
+    <section id="experiencia" class="experience">
       <h2>Experiencia Laboral</h2>
 
       <div class="experience-list">
@@ -265,7 +273,7 @@ const recentDecisions = allDecisions
       </div>
     </section>
 
-    <section class="experience">
+    <section id="academica" class="experience">
         <h2>Experiencia Academica</h2>
         <article class="experience-item">
           <span class="experience-date">Mar 2025 – Dic 2025</span>
@@ -294,6 +302,16 @@ const recentDecisions = allDecisions
             capacidad discriminatoria y precisión, validando el uso de deep learning para el análisis de 
             señales fisiológicas complejas.
           </p>
+          
+          <p class="experience-description">
+            El modelo logró resultados destacados en la clasificación binaria (dolor vs. sano), alcanzando 
+            métricas como un AUC cercano a 0.97 y precisión de hasta un 100% en ciertos escenarios, evidenciando 
+            una alta capacidad discriminatoria en señales biomédicas complejas. Debido a que los datos utilizados 
+            no son de acceso público, el trabajo continuará con la adaptación del modelo a datasets abiertos y el 
+            desarrollo de una interfaz gráfica que permita visualizar e interpretar los resultados de manera más 
+            intuitiva en un proyecto futuro.
+          </p>
+
 
           <p class="experience-learnings">
             <strong>Aprendizajes clave:</strong> Procesamiento de señales biomédicas, construcción de pipelines 
@@ -304,6 +322,57 @@ const recentDecisions = allDecisions
     </section>
 
   <style>
+        /* Estilos para el menú lateral derecho */
+    .quick-nav {
+      position: fixed;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: none; /* Se oculta por defecto */
+    }
+    section[id] {
+    scroll-margin-top: 100px;
+    }
+
+    .quick-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      border-right: 2px solid var(--color-border);
+      padding-right: 1rem;
+    }
+
+    .quick-nav a {
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-muted);
+      transition: color 0.2s ease;
+      display: block;
+      text-align: right;
+    }
+
+    .quick-nav a:hover {
+      color: var(--color-text);
+    }
+
+    /* Mostrar solo en pantallas grandes (Desktop) */
+    @media (min-width: 1280px) {
+      .quick-nav {
+        display: block;
+      }
+    }
+
+    /* Opcional: Suavizar el scroll al hacer clic */
+    html {
+      scroll-behavior: smooth;
+    }
     .home-page {
       max-width: 1100px;
       margin: 0 auto;

@@ -1,24 +1,10 @@
 ---
 /**
- * Uses Page
+ * Uses Page (Ahora adaptada para Certificaciones)
  * 
  * Documents the tools, technologies, and environment used in the development workflow.
  * Provides transparency about the technical stack and helps other engineers discover
  * useful tools while understanding the technical context.
- * 
- * Features:
- * - Queries all uses entries from content collection
- * - Sorts by custom order field for intentional presentation
- * - Groups items by category (tools, stack, environment)
- * - Displays category headers with descriptions
- * - Shows items with name, description, and optional external links
- * - External link indicators for referenced tools
- * - Empty state handling
- * 
- * Categories:
- * - tools: Software and applications used daily
- * - stack: Technologies and frameworks worked with
- * - environment: Hardware and workspace setup
  * 
  * Route: /uses
  * 
@@ -37,20 +23,11 @@ const allUses = await getCollection('uses');
 
 /**
  * Sorts uses entries by custom order field
- * 
- * Allows intentional curation of which tools/technologies are highlighted
- * first within each category.
  */
 const sortedUses = allUses.sort((a, b) => a.data.order - b.data.order);
 
 /**
  * Groups uses entries by category
- * 
- * Creates a record object where keys are category names (tools, stack, environment)
- * and values are arrays of entries in that category. This enables category-based
- * section organization in the UI.
- * 
- * @returns Record with category as key and array of entries as value
  */
 const groupedByCategory = sortedUses.reduce((acc, entry) => {
   const category = entry.data.category;
@@ -63,22 +40,23 @@ const groupedByCategory = sortedUses.reduce((acc, entry) => {
 
 /**
  * Category metadata for display
- * 
- * Defines the title and description for each category section,
- * providing context about what each category contains.
+ * Actualizado para soportar las categorías de certificaciones.
  */
-const categoryInfo = {
-  tools: { title: 'Tools', description: 'Software and applications I use daily' },
-  stack: { title: 'Tech Stack', description: 'Technologies and frameworks I work with' },
-  environment: { title: 'Environment', description: 'Hardware and workspace setup' },
+const categoryInfo: Record<string, { title: string; description: string }> = {
+  backend: { title: 'Backend Development', description: 'Certificaciones enfocadas en arquitectura, APIs y lógica de servidor' },
+  cloud: { title: 'Cloud & DevOps', description: 'Certificaciones en infraestructura, despliegue y nube' },
+  frontend: { title: 'Frontend Development', description: 'Certificaciones en interfaces y experiencia de usuario' },
+  ai: { title: 'Inteligencia Artificial', description: 'Certificaciones en Machine Learning y Análisis de Datos' },
+  tools: { title: 'Herramientas', description: 'Software y aplicaciones' },
+  stack: { title: 'Tech Stack', description: 'Tecnologías y frameworks' },
+  environment: { title: 'Environment', description: 'Entorno de desarrollo' },
 };
 
 /**
  * Defines the display order for categories
- * 
- * Ensures categories appear in a logical progression: tools → stack → environment
+ * Incluimos las nuevas categorías de certificaciones.
  */
-const categoryOrder: Array<'tools' | 'stack' | 'environment'> = ['tools', 'stack', 'environment'];
+const categoryOrder: string[] = ['backend', 'cloud', 'frontend', 'ai', 'tools', 'stack', 'environment'];
 ---
 
 <BaseLayout>
@@ -101,7 +79,8 @@ const categoryOrder: Array<'tools' | 'stack' | 'environment'> = ['tools', 'stack
       const entries = groupedByCategory[categoryKey];
       if (!entries || entries.length === 0) return null;
 
-      const info = categoryInfo[categoryKey];
+      // Si la categoría no está en categoryInfo, usamos valores por defecto
+      const info = categoryInfo[categoryKey] || { title: categoryKey, description: '' };
 
       return (
         <section class="category-section">
@@ -112,7 +91,7 @@ const categoryOrder: Array<'tools' | 'stack' | 'environment'> = ['tools', 'stack
 
           <div class="items-list">
             {entries.map((entry) => (
-              entry.data.items.map((item) => (
+              entry.data.items.map((item: any) => (
                 <div class="item">
                   <h3 class="item-name">
                     {item.url ? (
@@ -124,6 +103,14 @@ const categoryOrder: Array<'tools' | 'stack' | 'environment'> = ['tools', 'stack
                       item.name
                     )}
                   </h3>
+                  
+                  {/* Nueva sección para mostrar Emisor y Fecha */}
+                  {(item.issuer || item.date) && (
+                    <p class="item-meta">
+                      {item.issuer} {item.issuer && item.date && ' • '} {item.date}
+                    </p>
+                  )}
+
                   <p class="item-description">{item.description}</p>
                 </div>
               ))
@@ -134,7 +121,7 @@ const categoryOrder: Array<'tools' | 'stack' | 'environment'> = ['tools', 'stack
     })}
 
     {sortedUses.length === 0 && (
-      <p class="empty-state">No uses documented yet.</p>
+      <p class="empty-state">Aún no hay certificaciones documentadas.</p>
     )}
   </main>
 
@@ -158,6 +145,7 @@ const categoryOrder: Array<'tools' | 'stack' | 'environment'> = ['tools', 'stack
       margin-bottom: 0.5rem;
       font-weight: 600;
       letter-spacing: -0.01em;
+      text-transform: capitalize;
     }
 
     .category-description {
@@ -174,7 +162,7 @@ const categoryOrder: Array<'tools' | 'stack' | 'environment'> = ['tools', 'stack
 
     .item-name {
       font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
       font-weight: 600;
       letter-spacing: -0.01em;
     }
@@ -195,6 +183,16 @@ const categoryOrder: Array<'tools' | 'stack' | 'environment'> = ['tools', 'stack
     .external-link-icon {
       font-size: 0.875rem;
       opacity: 0.6;
+    }
+
+    /* Estilos para el emisor y la fecha */
+    .item-meta {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      opacity: 0.8;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
     }
 
     .item-description {

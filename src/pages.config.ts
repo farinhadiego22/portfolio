@@ -112,10 +112,10 @@ export const pagesConfig = {
    * Uses/tools page (/uses)
    */
   uses: {
-    title: 'Uses - Tools, Stack & Environment',
-    description: 'A comprehensive list of the tools, technologies, and environment I use for development work.',
-    heading: 'Uses',
-    intro: 'A transparent look at the tools, technologies, and environment that power my development workflow. This page documents what I use and why, helping other engineers discover useful tools and understand my technical context.',
+    title: 'Cursos y certificados',
+    description: 'Cursos y certificados que respaldan mi aprendizaje continuo y reflejan mi compromiso por seguir fortaleciendo mis habilidades técnicas y profesionales.',
+    heading: 'Cursos y certificados',
+    intro: 'Cursos y certificados que respaldan mi aprendizaje continuo y reflejan mi compromiso por seguir fortaleciendo mis habilidades técnicas y profesionales.',
   },
   
   /**
@@ -124,7 +124,7 @@ export const pagesConfig = {
   contact: {
     title: 'Contact - Get in Touch',
     description: 'Get in touch to discuss opportunities, collaborations, or technical challenges.',
-    heading: 'Let\'s Talk',
+    heading: 'Hablemos',
   },
 } as const;
 

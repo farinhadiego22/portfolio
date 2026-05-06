@@ -93,7 +93,6 @@ export const siteConfig = {
     
     /** Location (optional, empty string to hide) */
     location: getEnv('SITE_AUTHOR_LOCATION', 'Colina, Región Metropolitana'),
-    bio: getEnv('SITE_AUTHOR_BIO', 'Ingeniero de software enfocada en sistemas backend, datos y automatización, con interés en aplicar IA para resolver problemas complejos mediante soluciones prácticas y bien diseñadas.'),
   },
   
   /**
@@ -126,9 +125,9 @@ export const siteConfig = {
    * Add or remove items to customize navigation.
    */
   nav:  [
-    { label: 'Proyectos', href: '/projects' },
-    { label: 'Certificaciones', href: '/uses' },
-    { label: 'Contacto', href: '/contact' },
+    { label: 'Proyectos', href: '/proyectos' },
+    { label: 'Cursos', href: '/cursos' },
+    { label: 'Contacto', href: '/contacto' },
   ],
 } as const;
 

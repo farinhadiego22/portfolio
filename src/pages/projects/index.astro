@@ -1,20 +1,21 @@
 ---
 /**
- * Projects Index Page
+ * Página de Índice de Proyectos
  * 
- * Lists all projects as case studies with impact summaries. Projects are displayed
- * in a prioritized order: custom order (if specified) takes precedence, otherwise
- * sorted by year (most recent first). Featured projects are highlighted.
+ * Enumera todos los proyectos como casos de estudio con resúmenes de impacto. 
+ * Los proyectos se muestran en un orden priorizado: el orden personalizado (si se especifica) 
+ * tiene precedencia; de lo contrario, se ordenan por año (el más reciente primero). 
+ * Los proyectos destacados se resaltan.
  * 
- * Features:
- * - Queries all projects from content collection
- * - Smart sorting: custom order → year (descending)
- * - Displays project and featured count statistics
- * - Uses ProjectCard component for consistent presentation
- * - SEO optimization
- * - Empty state handling
+ * Características:
+ * - Consulta todos los proyectos de la colección de contenido
+ * - Orden inteligente: orden personalizado → año (descendente)
+ * - Muestra estadísticas de conteo total y proyectos destacados
+ * - Utiliza el componente ProjectCard para una presentación consistente
+ * - Optimización SEO
+ * - Manejo de estado vacío
  * 
- * Route: /projects
+ * Ruta: /projects
  * 
  * @page
  */
@@ -27,40 +28,40 @@ import { getCollection } from 'astro:content';
 import { pagesConfig } from '../../pages.config';
 
 /**
- * Queries all projects from the content collection
+ * Obtiene todos los proyectos de la colección de contenido
  */
 const allProjects = await getCollection('projects');
 
 /**
- * Sorts projects with intelligent prioritization
+ * Ordena los proyectos con priorización inteligente
  * 
- * Sorting logic:
- * 1. If both projects have an 'order' field, sort by order (ascending)
- * 2. Projects with 'order' field are prioritized over those without
- * 3. Projects without 'order' are sorted by year (descending - newest first)
+ * Lógica de ordenamiento:
+ * 1. Si ambos proyectos tienen un campo 'order', se ordena por ese número (ascendente)
+ * 2. Los proyectos con el campo 'order' tienen prioridad sobre los que no lo tienen
+ * 3. Los proyectos sin 'order' se ordenan por año (descendente - los más nuevos primero)
  * 
- * This allows manual curation of featured projects while maintaining
- * chronological order for others.
+ * Esto permite una curación manual de proyectos destacados manteniendo el
+ * orden cronológico para los demás.
  */
 const sortedProjects = allProjects.sort((a, b) => {
-  // If both have order field, sort by order
+  // Si ambos tienen campo de orden, ordenar por ese número
   if (a.data.order !== undefined && b.data.order !== undefined) {
     return a.data.order - b.data.order;
   }
-  // If only one has order, prioritize it
+  // Si solo uno tiene orden, priorizarlo
   if (a.data.order !== undefined) return -1;
   if (b.data.order !== undefined) return 1;
-  // Otherwise sort by year (descending)
+  // De lo contrario, ordenar por año (descendente)
   return b.data.year - a.data.year;
 });
 
 /**
- * Total count of projects for statistics display
+ * Conteo total de proyectos para la visualización de estadísticas
  */
 const totalProjects = sortedProjects.length;
 
 /**
- * Count of featured projects for statistics display
+ * Conteo de proyectos destacados para la visualización de estadísticas
  */
 const featuredCount = sortedProjects.filter(p => p.data.featured).length;
 ---
@@ -79,7 +80,7 @@ const featuredCount = sortedProjects.filter(p => p.data.featured).length;
       <p class="page-intro">
         {pagesConfig.projects.intro}
       </p>
-      <PageStats text={`${totalProjects} projects · ${featuredCount} featured`} />
+      <PageStats text={`${totalProjects} proyectos · ${featuredCount} destacados`} />
     </header>
 
     {sortedProjects.length > 0 ? (
@@ -98,7 +99,7 @@ const featuredCount = sortedProjects.filter(p => p.data.featured).length;
         ))}
       </div>
     ) : (
-      <p class="empty-state">No projects available yet.</p>
+      <p class="empty-state">No hay proyectos disponibles por el momento.</p>
     )}
   </main>
 </BaseLayout>

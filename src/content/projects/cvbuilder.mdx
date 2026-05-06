@@ -1,0 +1,77 @@
+---
+title: "CV Builder - Generador de Currículums"
+role: "Frontend Developer"
+year: 2026
+status: "completed"
+duration: "2 semanas"
+teamSize: 1
+
+# Enlaces del proyecto
+demoUrl: "https://tu-demo-aqui.com"
+prototypeUrl: "https://www.figma.com/proto/ejemplo-de-prototipo"
+
+outcomeSummary: "Aplicación web para crear CVs con edición en tiempo real, múltiples plantillas y exportación a PDF"
+overview: "Desarrollo de una aplicación web interactiva que permite construir currículums de forma estructurada con preview en tiempo real y sistema de templates desacoplado."
+problem: "Crear CVs personalizados suele ser un proceso manual y poco flexible. Las herramientas existentes limitan la personalización o no ofrecen una vista previa fiel al resultado final."
+constraints:
+  - "Implementación completa en un plazo de 2 semanas"
+  - "Mantener una arquitectura escalable desde el inicio"
+  - "Exportación a PDF fiel al diseño visual (formato A4)"
+  - "Sin backend, utilizando persistencia local"
+approach: "Se diseñó una arquitectura basada en un store central (Pinia) como única fuente de verdad, separando completamente editor, preview y templates. Se implementó un sistema de templates dinámico mediante un registry y un resolver para permitir escalabilidad."
+keyDecisions:
+  - decision: "Uso de un store centralizado (Pinia) como Single Source of Truth"
+    reasoning: "Permite sincronización en tiempo real entre editor y preview sin acoplamiento directo entre componentes."
+    alternatives:
+      - "Estado local por componente"
+      - "Vuex"
+  - decision: "Sistema de templates desacoplado mediante registry"
+    reasoning: "Facilita la extensibilidad y permite agregar nuevos diseños sin modificar la lógica central."
+    alternatives:
+      - "Templates hardcodeados"
+      - "Condicionales en el renderizado"
+  - decision: "Exportación a PDF usando html2canvas + jsPDF"
+    reasoning: "Permite capturar el diseño visual real del preview y mantener fidelidad en la exportación."
+    alternatives:
+      - "Generación de PDF desde HTML server-side"
+      - "Librerías de generación de documentos"
+techStack:
+  - "Vue 3 (Composition API)"
+  - "TypeScript"
+  - "Pinia"
+  - "Tailwind CSS"
+  - "html2canvas"
+  - "jsPDF"
+  - "Vite"
+impact:
+  metrics:
+    - label: "Tiempo de desarrollo"
+      value: "2 semanas (end-to-end)"
+    - label: "Templates implementados"
+      value: "3 (Default, Minimal, Modern)"
+    - label: "Renderización"
+      value: "Actualización en tiempo real sin recarga"
+  qualitative: "Se logró una base sólida y escalable que permite extender funcionalidades como nuevos templates, exportación avanzada y futura integración con backend o IA."
+learnings:
+  - "La separación estricta entre estado, UI y templates simplifica la escalabilidad"
+  - "Un sistema de templates desacoplado permite iterar rápidamente en diseño"
+  - "La exportación a PDF desde el frontend requiere ajustes finos para mantener fidelidad visual"
+featured: false
+order: 3
+---
+
+## Recursos del Proyecto
+
+*   **Demo web:** [Visitar Aplicación](https://main.d1m1l7kf2hvxt8.amplifyapp.com/)
+
+---
+
+## Technical Deep Dive
+
+La arquitectura se centró en un flujo unidireccional:
+
+Editor → Store (Pinia) → Preview → Template
+
+El uso de un registry de templates junto a un resolver dinámico permitió desacoplar completamente la lógica de presentación, facilitando la incorporación de nuevos diseños sin afectar el resto del sistema.
+
+Además, se priorizó que todos los componentes fueran presentacionales, delegando la lógica al store, lo que simplifica el mantenimiento y futuras extensiones.

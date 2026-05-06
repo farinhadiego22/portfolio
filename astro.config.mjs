@@ -48,6 +48,7 @@ export default defineConfig({
    */
   output: 'static',
   
+  
   /**
    * Astro integrations
    * 
@@ -148,5 +149,10 @@ export default defineConfig({
       theme: 'github-dark',
       wrap: true
     }
-  }
+  },
+      // astro.config.mjs
+  
+  redirects: {
+    '/proyectos': '/projects',
+    }
 });

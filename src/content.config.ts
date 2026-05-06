@@ -237,13 +237,18 @@ const usesCollection = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/uses' }),
   schema: z.object({
     /** Category for grouping */
-    category: z.enum(['tools', 'stack', 'environment']),
+    // Añadimos 'backend' y quizás otras que te sirvan para certificados
+    category: z.enum(['tools', 'stack', 'environment', 'backend', 'cloud', 'frontend', 'ai']), 
     
     /** List of items in this category */
     items: z.array(z.object({
       name: z.string(),
       description: z.string(),
-      url: z.string().url().optional(),
+      url: z.string().optional().or(z.literal("")),
+      // Tip: Si vas a usar 'issuer' y 'date' en tu MDX, 
+      // deberías agregarlos aquí también para que Astro los reconozca.
+      issuer: z.string().optional(),
+      date: z.string().optional(),
     })),
     
     /** Sort order within category */
