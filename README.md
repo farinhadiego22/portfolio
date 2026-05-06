@@ -1,5 +1,8 @@
 # 🛠️ Portafolio en Preparación
 
+> [!IMPORTANT]
+> **🌐 Puedes ver el progreso en vivo aquí:** [Diego Fariña Pages]https://dfarina.pages.dev/
+
 Este es mi portafolio personal construido con **Astro**. Actualmente el sitio se encuentra en fase de desarrollo y diseño.
 
 ## 📁 Organización del proyecto

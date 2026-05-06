@@ -149,10 +149,5 @@ export default defineConfig({
       theme: 'github-dark',
       wrap: true
     }
-  },
-      // astro.config.mjs
-  
-  redirects: {
-    '/proyectos': '/projects',
-    }
+  }
 });
